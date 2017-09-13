@@ -1,0 +1,16 @@
+node_modules/
+.tmp/
+.var/
+
+.DS_Store
+*-secret.json
+*.xml
+*.iml
+.name
+*.orig
+npm-debug.log
+npm-debug.log*
+.gulp-cache
+*_scsslint_tmp*
+Thumbs.db
+.vscode
