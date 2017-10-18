@@ -309,3 +309,11 @@ import viewportSize from 'dom-tricks/viewportSize';
 
 const { width, height } = viewportSize();
 ```
+
+### onOutClick(element, handlerOutsideClick, handlerInsideClick)
+
+### onGlobalKeyPress(handler)
+
+### onHover(element, enterHandler, leaveHandler)
+
+### isSomeChild(elements, targetElement)
