@@ -4,7 +4,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 
-const DIR_SRC = 'lib';
+
 const NODE_ENV = process.env.NODE_ENV || 'production'; // eslint-disable-line
 const DIR_BABEL_CACHE_DIR = path.resolve(__dirname, '.tmp/babel');
 
@@ -23,8 +23,8 @@ config.output = {
 
 
 config.entry = {
-  'react-composite-router': [
-    path.join(__dirname, DIR_SRC, 'index.js')
+  'dom-tricks': [
+    path.join(__dirname, 'index.js')
   ]
 };
 
@@ -39,18 +39,12 @@ config.module = {};
 
 
 
-config.module.noParse = [
-];
-
-
-
-config.module.loaders = [
+config.module.rules = [
   {
     test: /\.(?:jsx?)(?:\?.*)?$/i,
-    exclude: [
-    ],
-    loaders: [
-      `babel?cacheDirectory=${DIR_BABEL_CACHE_DIR}`
+    exclude: [],
+    use: [
+      `babel-loader?cacheDirectory=${DIR_BABEL_CACHE_DIR}`
     ]
   }
 ];
@@ -71,18 +65,12 @@ config.plugins.push(new webpack.DefinePlugin({
 
 
 
-config.plugins.push(new webpack.optimize.DedupePlugin());
-
-
-
-config.plugins.push(new webpack.optimize.OccurenceOrderPlugin(true));
-
-
-
 config.resolve = {
-  root: DIR_SRC,
-  moduleDirectories: [ 'node_modules' ],
-  extensions: [ '', '.js' ],
+  modules: [
+    __dirname,
+    'node_modules'
+  ],
+  extensions: [ '.js' ],
   alias: {}
 };
 
@@ -94,10 +82,6 @@ config.resolveLoader = {
 
 
 
-config.bail = true;
-config.devtool = null;
-config.cache = false;
-config.debug = false;
 config.watch = false;
 
 
