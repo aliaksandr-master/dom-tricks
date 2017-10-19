@@ -36,3 +36,4 @@ export setStyle from './setStyle';
 export setText from './setText';
 export Style from './Style';
 export viewportSize from './viewportSize';
+export el from './el';
