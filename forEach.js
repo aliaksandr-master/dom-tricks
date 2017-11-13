@@ -3,7 +3,7 @@ export default (element, processor) => {
     return 0;
   }
 
-  if (element.length == null) {
+  if (element.length == null || element === window) {
     const result = processor(element, 0);
 
     return result || result == null ? 1 : 0;

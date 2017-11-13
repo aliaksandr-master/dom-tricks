@@ -14,10 +14,10 @@ const off = (domElements, eventName, handler) => // http://youmightnotneedjquery
   });
 
 
-const on = (domElements, eventName, handler, props) => // http://youmightnotneedjquery.com/
+const on = (domElements, eventName, handler, props = null) => // http://youmightnotneedjquery.com/
   iterate(domElements, (domElement) => {
     if (domElement.addEventListener) {
-      if (props == null) {
+      if (props !== null) {
         domElement.addEventListener(eventName, handler, props);
       } else {
         domElement.addEventListener(eventName, handler);
